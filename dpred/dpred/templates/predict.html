@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Predict</title>
+    <style>
+        body {
+            background-image: url("{% static 'diabetesprediction/images/db.jpeg' %}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            margin: 0;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+
+        div {
+            width: 50%;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #f2f2f2;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        form {
+            text-align: center;
+        }
+
+        input[type="submit"], input[type="button"] {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        input[type="submit"]:hover, input[type="button"]:hover {
+            background-color: #3e8e41;
+        }
+    </style>
+</head>
+<body>
+    <p>Welcome to the prediction page</p>
+    <div align="center" class="min">
+        <h1>Please fill the following information</h1>
+        <form action="result" method="GET">
+            {% csrf_token %}
+            <label for="Pregnancies">Pregnancies:</label>
+            <input type="number" id="Pregnancies" name="n1" step="1" required value="{{ input_values.n1 }}"><br>
+            <label for="Glucose">Glucose:</label>
+            <input type="number" id="Glucose" name="n2" step="1" required value="{{ input_values.n2 }}"><br>
+            <label for="BloodPressure">Blood Pressure:</label>
+            <input type="number" id="BloodPressure" name="n3" step="1" required value="{{ input_values.n3 }}"><br>
+            <label for="SkinThickness">Skin Thickness:</label>
+            <input type="number" id="SkinThickness" name="n4" step="1" required value="{{ input_values.n4 }}"><br>
+            <label for="Insulin">Insulin:</label>
+            <input type="number" id="Insulin" name="n5" step="1" required value="{{ input_values.n5 }}"><br>
+            <label for="BMI">BMI:</label>
+            <input type="number" id="BMI" name="n6" step="0.1" required value="{{ input_values.n6 }}"><br>
+            <label for="DiabetesPedigreeFunction">Diabetes Pedigree Function:</label>
+            <input type="number" id="DiabetesPedigreeFunction" name="n7" step="0.01" required value="{{ input_values.n7 }}"><br>
+            <label for="Age">Age:</label>
+            <input type="number" id="Age" name="n8" step="1" required value="{{ input_values.n8 }}"><br>
+            <input type="submit" value="Submit">
+            <input type="button" value="check again" onclick="window.location.href='{{ request.path }}'">
+        </form>
+
+        <p>Result: {{ result2 }}</p>
+    </div>
+</body>
+</html>
