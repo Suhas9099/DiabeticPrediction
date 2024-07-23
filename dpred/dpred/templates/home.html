@@ -1,0 +1,63 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <style>
+        body {
+            background-image: url("{% static 'diabetesprediction/images/bd.jpeg' %}");
+            background-size: cover; /* Ensures the background image covers the entire page */
+            background-repeat: no-repeat; /* Prevents the background image from repeating */
+            background-position: center center; /* Centers the background image */
+            margin: 0; /* Removes default margin */
+            height: 100vh; /* Ensures the body takes up the full viewport height */
+            font-family: Arial, sans-serif; /* Sets the font family */
+        }
+
+        div {
+            width: 50%; /* Sets the width of the div */
+            margin: 40px auto; /* Centers the div horizontally */
+            padding: 20px; /* Adds padding to the div */
+            background-color: #f2f2f2; /* Sets the background color of the div */
+            border: 1px solid #ccc; /* Adds a border to the div */
+            border-radius: 10px; /* Adds a border radius to the div */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adds a box shadow to the div */
+        }
+
+        h1 {
+            color: #333; /* Sets the color of the h1 text */
+            font-size: 36px; /* Sets the font size of the h1 text */
+            margin-bottom: 20px; /* Adds margin to the bottom of the h1 text */
+        }
+
+        form {
+            text-align: center; /* Centers the form elements */
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50; /* Sets the background color of the submit button */
+            color: #fff; /* Sets the text color of the submit button */
+            padding: 10px 20px; /* Adds padding to the submit button */
+            border: none; /* Removes the border from the submit button */
+            border-radius: 5px; /* Adds a border radius to the submit button */
+            cursor: pointer; /* Changes the cursor to a pointer on hover */
+        }
+
+        input[type="submit"]:hover {
+            background-color: #3e8e41; /* Changes the background color on hover */
+        }
+    </style>
+</head>
+<body>
+    <div align="center">
+        <h1>
+            Welcome to Diabetes Prediction System
+        </h1>
+        <form action="predict">
+            <input type="submit" value="Let's Get Started">
+        </form>
+    </div>
+</body>
+</html>
